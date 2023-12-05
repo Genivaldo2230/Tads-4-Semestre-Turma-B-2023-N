@@ -1,0 +1,45 @@
+tabela bancoa de dados h2
+
+id
+titulo
+genero
+anoDeLancamento
+
+ tabela de banco de dados para armazenar informações sobre filmes.
+  Se você estiver utilizando o banco de dados H2, a tabela pode ser criada usando SQL.
+   Aqui está um exemplo de como você poderia criar essa tabela:
+
+
+CREATE TABLE filmes (
+    id INT PRIMARY KEY,
+    titulo VARCHAR(255),
+    genero VARCHAR(50),
+    anoDeLancamento INT
+);
+
+
+id: É a chave primária da tabela, presumivelmente usada para identificar exclusivamente cada registro na tabela. É do tipo INT.
+titulo: Armazena o título do filme e é do tipo VARCHAR(255), o que significa que pode armazenar até 255 caracteres.
+genero: Armazena o gênero do filme e é do tipo VARCHAR(50).
+anoDeLancamento: Armazena o ano de lançamento do filme e é do tipo INT.
+Você pode ajustar os tipos de dados e os tamanhos de campo conforme necessário com base nos requisitos específicos do seu projeto. Certifique-se de adaptar a estrutura da tabela de acordo com os requisitos do seu sistema.
+
+User
+quero fafazer inserção no banco de dados
+ChatGPT
+Para realizar a inserção de dados na tabela que você criou, você pode utilizar a instrução SQL INSERT INTO. Aqui está um exemplo de como você pode inserir um registro na tabela de filmes:
+
+
+# INSERT INTO filmes (id, titulo, genero, anoDeLancamento)
+VALUES (1, 'O Filme', 'Ação', 2022);
+Neste exemplo, estamos inserindo um filme com ID 1, título 'O Filme', gênero 'Ação' e ano de lançamento 2022. Lembre-se de que, se a coluna id for uma chave primária com a propriedade de autoincremento, você pode omitir o valor para id, pois o banco de dados gerará automaticamente um valor único.
+
+Se você quiser inserir mais registros, basta repetir a instrução INSERT INTO com os valores desejados. Por exemplo:
+
+
+# INSERT INTO filmes (id, titulo, genero, anoDeLancamento)
+VALUES (2, 'Outro Filme', 'Comédia', 2021);
+
+# INSERT INTO filmes (id, titulo, genero, anoDeLancamento)
+VALUES (3, 'Mais um Filme', 'Drama', 2023);
+Esses são exemplos básicos. Certifique-se de adaptar os valores de acordo com os dados que você deseja inserir no seu banco de dados.

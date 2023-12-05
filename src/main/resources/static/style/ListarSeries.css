@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-image: url("/static/assents/videoClips/Logotipo.mp4");
+}
+
+body {
+    max-width: 100%;
+    display: grid;
+    justify-content: center;
+}
+
+body, h1, h2, form, table {
+    margin: 10px;
+    padding: 5px;
+    font-family: Arial, sans-serif;
+    background-color: #61616170;
+    border: 2.5px solid #f7ecec;
+    border-radius: 14px;
+    font-family: Arial, sans-serif;
+}
+
+#container {
+    width: 80%;
+    height: auto;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin: 100px;
+}
+
+video {
+    width: 100%;
+    height: 100vh; /* Ocupa 100% da altura da viewport */
+    object-fit: cover; /* Mantém a proporção do vídeo */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Coloca o vídeo no fundo */
+}
+
+h1 {
+    width: 100%;
+    margin-top: 100px;
+    padding: 17px;
+    text-align: center;
+    border: 3px solid #5ce51696;
+    color: white;
+    border-radius: 44px;
+    display: block;
+    font-size: 3em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.link-add {
+    font-weight: bold;
+    border: 3px solid #eae4e4;
+    margin: 10px;
+    margin-left: 31em;
+    font-family: sans-serif;
+    color: white;
+    font-size: 23px;
+    padding: 9px 38px;
+    border-radius: 18px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Estilo quando o mouse está sobre o link "Adicionar Filmes e Series" */
+.link-add:hover {
+    background-color: royalblue; /* Altere a cor de fundo conforme necessário */
+    color: yellow; /* Altere a cor do texto conforme necessário */
+    /* Adicione mais estilos conforme necessário para o hover */
+}
+
+p {
+    display: block;
+    font-size: 25px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    color: white;
+    background: cadetblue;
+    padding: 10px 20px;
+    border-radius: 24px;
+    border: 3px solid #e8e3e3;
+}
+
+a.link-voltar {
+    color: white;
+    font-size: 32px;
+    margin: 28px;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 20px;
+    font-family: initial;
+    text-decoration: none;
+    display: block;
+    text-align: end;
+    background-color: #5f9ea0ab;
+}
+
+a.link-voltar:hover {
+    color: black;
+    background-color: chartreuse;
+}
+
+h2 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+table {
+    width: 98em;
+    /* border-collapse: collapse; */
+    margin-top: 10px;
+    display: table;
+    border-collapse: unset;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    /* border-color: #c72b2b; */
+    background-color: #79a50038;
+}
+
+th, td {
+    border: 2px solid #131212;
+    padding: 8px;
+}
+
+td {
+    color: white;
+    font-family: 'Inter';
+    font-size: 21px;
+    text-align: center;
+}
+
+th {
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 1.5em;
+    text-align: center;
+    font-family: system-ui;
+    border-bottom: 30px solid #bf780f;
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 600px) {
+    /* Estilos para telas menores que 600 pixels de largura */
+    body {
+        border: none;
+        overflow-x: auto; /* Adiciona scroll horizontal à tabela */
+    }
+
+    h1 {
+        border: none;
+        font-size: 1.3em;
+        width: 355px;
+        margin: 0;
+        margin-left: -41px;
+    }
+
+    #container {
+        margin: auto;
+        max-width: 80%;
+        max-height: auto;
+        display: grid;
+        justify-items: center;
+
+    }
+
+    table {
+        /* display: grid; */
+        width: 114%;
+        border-collapse: collapse;
+        justify-items: center;
+        margin-left: -35px;
+        border: 3px solid white;
+        /* border-collapse: collapse; */
+    }
+
+    td {
+        border: 2.2px solid greenyellow;
+    }
+
+    th {
+        border: 0.2px solid red;
+    }
+
+    th, td {
+        /*border: none;*/
+        border: 0.2px solid white;
+        min-width: auto; /* Define a largura mínima das células para evitar que o conteúdo seja muito compactado */
+        padding: 6px; /* Reduz o espaçamento interno das células */
+        font-size: 14px; /* Ajusta o tamanho da fonte das células */
+    }
+
+    .link-add {
+        width: 86%;
+        font-weight: bold;
+        border: 3px solid #eae4e4;
+        margin: 10px;
+        margin-left: 26px;
+        font-family: sans-serif;
+        color: white;
+        font-size: 14px;
+        text-align: center;
+        padding: 10px 20px;
+        background-color: cornflowerblue;
+        border-radius: 18px;
+        text-decoration: none;
+    }
+
+    /* Estilo quando o mouse está sobre o link "Adicionar Filmes e Series" */
+    .link-add:hover {
+        background-color: royalblue; /* Altere a cor de fundo conforme necessário */
+        color: yellow; /* Altere a cor do texto conforme necessário */
+        /* Adicione mais estilos conforme necessário para o hover */
+    }
+    a.link-voltar {
+        text-align: center;
+    }
+    p{
+        font-size: 10px;
+        background-color: #cfe5dc;
+        color: #131212;
+    }
+}
+/* Estilos específicos para outra tela */
+@media only screen and (max-width: 768px) {
+    /* Adicione estilos específicos para telas menores que 768 pixels de largura */
+    h1 {
+        font-size: 1.5em;
+    }
+
+    #container {
+        max-width: 90%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .link-add {
+        width: 80%;
+    }
+    video{
+        width: 100%;
+        height: 100%;
+    }
+}

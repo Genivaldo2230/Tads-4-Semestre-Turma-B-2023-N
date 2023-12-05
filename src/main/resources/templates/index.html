@@ -1,0 +1,126 @@
+<! DOCTYPE SISTEMA HTML "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">-->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="/style/ObservacaoText.css" rel="stylesheet">
+
+    <title>TADS Atividade Desenvolvimento Web 2023-2- Turma B</title>
+
+</head>
+<body>
+<div id="container-main">
+    <div class="row">
+        <div class="col-12">
+            <h1>Listagem e inclusão de séries</h1>
+            <h2>TADS Atividade Desenvolvimento Web 2023-2 - Turma B</h2>
+            <p>Nome completo: <strong>Genivaldo Alves dos Anjos</strong></p>
+            <p>Está cursando PI4 neste semestre? <strong>SIM</strong></p>
+            <p>Está cursando 4º Semestre Tads 2023 <strong>SIM</strong></p>
+            <p>Está cursando Desenvolvimento Web <strong>SIM</strong></p>
+            <p>Observações:<br/>
+                <span style="color: #aaa">Estou utilizando Bootstrap junto da aplicação Spring</span><br/>
+                <span style="color: #aaa">Estou utilizando Spring-boot suas dependências na aplicação Spring</span>
+            </p>
+
+            <div id="table">
+                <tabela>
+                    <Tbody>
+                    <tr>
+                        <th>Depedências do Primavera</th>
+                        <th>Spring Web</th>
+                        <th>Ferramenta</th>
+                        <th>H2 Data</th>
+                        <th>Primavera JPA</th>
+                    </TR>
+                    <!-- Adicionar linhas com informações de dependência reais aqui -->
+                    <style>
+                        /* Estilos para a lista não ordenada */
+                        ul {
+                            list-style-type: none;
+                            padding: 0;
+                            /* border: 3px solid red; */
+                            display: grid;
+                            font-size: 22px;
+                            color: white;
+                            margin-top: 0px;
+                        }
+
+                        /* Estilos para os itens de lista */
+                        ul li {
+                            margin-bottom: 10px; /* Espaçamento entre os itens */
+                        }
+
+                        /* Estilos para os círculos */
+                        ul li::before {
+                            content: "\2022"; /* Código Unicode para um ponto (•) */
+                            color: #3498db; /* Cor dos círculos */
+                            display: inline-block;
+                            width: 1em; /* Largura do círculo */
+                            margin-left: -1em; /* Deslocamento para alinhar com o texto */
+                        }
+
+                        /* Estilos para o texto dos itens de lista */
+                        ul li {
+                            display: inline-block; /* Permite que os itens fiquem na mesma linha */
+                            margin-left: 0.5em; /* Espaçamento entre o círculo e o texto */
+                            vertical-align: middle; /* Alinha verticalmente o texto com o círculo */
+                        }
+
+                    </style>
+                    <ul>
+                        <li>org.springframework.boot:spring-boot-starter-data-jpa</li>
+                        <li>org.springframework.boot:spring-boot-starter-thymeleaf</li>
+                        <li>org.springframework.boot:spring-boot-starter-web</li>
+                        <li>org.springframework.boot:spring-boot-starter-web-services</li>
+                        <li>org.springframework.boot:spring-boot-devtools</li>
+                        <li>com.h2database:h2</li>
+                        <li>org.projectlombok:lombok</li>
+                        <li>org.springframework.boot:spring-boot-starter-test</li>
+                    </ul>
+                    </tbody>
+                </tabela>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div style="overflow: hidden;" class="content">
+    <div style=" overflow: hidden;" class="content__container">
+        <p class="content__container__text">
+            Tecnologia:
+        </p>
+        <ul class="content__container__list">
+            <li class="content__container__list__item">SpringBoot !</li>
+            <li class="content__container__list__item">H2 Database !</li>
+            <li class="content__container__list__item">BootStrap !</li>
+            <li class="content__container__list__item">JavaScript !</li>
+        </ul>
+    </div>
+</div>
+
+<div class="list-serie">
+    <a th:href="@{/listarSeries}">Link para tela de listagem das séries</a>
+</div>
+
+<hr/>
+<br>
+
+<div class="link-add">
+    <a class="link-add" th:href="@{/addSeries}">Adicionar Filmes e Séries</a>
+</div>
+
+<script crossorigin="anonymous"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    window.devicePixelRatio
+
+</script>
+</body>
+</html>

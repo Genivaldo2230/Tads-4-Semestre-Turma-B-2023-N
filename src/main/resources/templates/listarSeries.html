@@ -1,0 +1,85 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>LISTA SERIES E Filme </title>
+    <link href="/style/ListarSeries.css" rel="stylesheet">
+
+</head>
+<body>
+<div id="container">
+
+    <h1>Tads 4º Semestre Turma {B} 2023-N</h1>
+
+    <video autoplay id="video-background" loop muted>
+        <source th:src="@{/assents/videoClips/Logotipo.mp4}" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
+
+    <!-- Conteúdo da sua página aqui -->
+    <!-- Display success message if present in the model -->
+    <div class="alert alert-success" th:if="${mensagem}">
+        <p th:text="${mensagem}"></p>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Título</th>
+            <th>Gênero</th>
+            <th style="width: 11em;">Lançamento Ano:</th>
+        </tr>
+        </thead>
+        <tbody>
+<!--        onclick="showTitleAlert(this)">-->
+        <tr th:each="item : ${series}" >
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.titulo}"></td>
+            <td th:text="${item.genero}"></td>
+            <td th:text="${item.anoLancamento}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+
+<div id="button-link-add">
+    <a class="link-add" th:href="@{/addSeries}">Adicinar Filmes e Series</a>
+    <hr>
+    <br><br>
+</div>
+
+<div id="button-link-voltar">
+    <hr>
+    <a class="link-voltar" th:href="@{/index.html}">Home</a>
+</div>
+
+<!-- Add this script block in the head section of your HTML -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    // Maintain a set to track clicked titles
+    var clickedTitles = new Set();
+
+    function showTitleAlert(row) {
+        // Assuming the title is in the second cell (index 1) of the clicked row
+        var seriesId = $(row).find('td:eq(1)').text();
+
+        // Check if the title has been clicked before
+        if (!clickedTitles.has(seriesId)) {
+            // Display an alert with the title of the clicked series
+            alert('Série Adiconada : ' + seriesId);
+
+            // Add the title to the set to mark it as clicked
+            clickedTitles.add(seriesId);
+        } else {
+            // Alert that the title has already been clicked
+            alert('Série já adicionada anteriormente: ' + seriesId);
+        }
+    }
+</script>
+
+</body>
+</html>
