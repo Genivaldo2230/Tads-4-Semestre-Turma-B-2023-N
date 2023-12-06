@@ -115,6 +115,44 @@ Ao automatizar a criação de tabelas, o ciclo de desenvolvimento se torna mais 
 Em resumo, essa abordagem facilita o desenvolvimento e o teste de aplicativos, proporcionando uma maneira eficiente e automatizada de gerenciar o esquema do banco de dados durante o ciclo de desenvolvimento.
 
 
+ # Documentação Técnica: Tratamento de Erro com Spring Framework
+
+Este documento técnico aborda o tratamento de erro no contexto de uma aplicação Spring Framework, com foco específico em lidar com exceções da classe ConstraintViolationException. A classe GlobalExceptionHandler é responsável por capturar e tratar essas exceções de forma centralizada, proporcionando uma resposta consistente em casos de violação de restrições de validação.
+
+1. Introdução
+   O tratamento de erro é uma parte essencial do desenvolvimento de software, garantindo que a aplicação possa lidar com falhas de maneira adequada e fornecer mensagens de erro úteis para os usuários. No caso de aplicações Spring, o uso de @ControllerAdvice e @ExceptionHandler permite a centralização do tratamento de exceções em um único local.
+
+2. Configuração do Controlador de Exceções
+   A classe GlobalExceptionHandler é anotada com @ControllerAdvice, indicando que é um controlador global de exceções. O método adicionarFilmes é marcado com @ExceptionHandler(ConstraintViolationException.class), especificando que este método deve ser invocado quando ocorrer uma exceção do tipo ConstraintViolationException.
+
+3. Parâmetros do Método
+   O método adicionarFilmes aceita três parâmetros:
+
+ConstraintViolationException e: Representa a exceção capturada, que contém informações sobre as violações de restrição de validação.
+
+@ModelAttribute HttpStatus.Series series: Permite a obtenção da série HTTP da resposta. No entanto, neste exemplo, não parece ser utilizado diretamente.
+
+Model model: Objeto do Spring que permite adicionar atributos para serem usados na resposta da página.
+
+4. Tratamento da Exceção
+   Dentro do método, as violações de restrição são recuperadas da exceção e transformadas em uma lista de mensagens de erro. Essas mensagens são então adicionadas ao modelo (Model) para serem exibidas na camada de apresentação.
+
+5. Comentários no Código
+   O código contém um comentário relacionado a evitar a persistência no banco de dados se houver erros de validação. Esse comentário sugere uma estratégia de tratamento para evitar a persistência de dados inválidos no banco.
+
+
+// Evita salvar no banco se houver erros de validação
+// return "errorPage";
+return "adicionarFilme";
+O código atualmente está configurado para redirecionar para a página "adicionarFilme" em caso de violações de restrição. O comentário fornece uma sugestão de retorno para uma possível página de erro, indicando que a persistência no banco de dados deve ser evitada se houver erros de validação.
+
+6. Conclusão
+   Este documento fornece uma visão técnica do tratamento de erro usando Spring Framework, destacando a classe GlobalExceptionHandler e seu método adicionarFilmes. A estrutura permite um tratamento centralizado de exceções relacionadas a violações de restrição de validação, melhorando a manutenção e a consistência na resposta a erros em toda a aplicação.
+
+
+
+
+
 
 
 
