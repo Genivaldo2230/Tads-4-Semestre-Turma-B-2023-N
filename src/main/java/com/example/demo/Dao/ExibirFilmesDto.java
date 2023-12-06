@@ -15,35 +15,41 @@ public class ExibirFilmesDto {
         String password = "sa";
 
         try (Connection connection = DriverManager.getConnection(url, user, password)) {
-            // Consulta SQL para recuperar os filmes
-            String query = "SELECT id, titulo, genero, anoLancamento FROM series";
+            // Consulta SQL para recuperar os filmes sem duplicatas
+            String query = "SELECT DISTINCT id, titulo, genero, anoLancamento FROM filmes";
 
             try (PreparedStatement preparedStatement = connection.prepareStatement(query);
                  ResultSet resultSet = preparedStatement.executeQuery()) {
 
-                // Obter a referência da tabela HTML
-                StringBuilder htmlTable = new StringBuilder("<table id=\"/listarSeries\">");
-                htmlTable.append("<tr><th>Título</th><th>Gênero</th><th>anoLancamento</th></tr>");
+                // Inicialização da tabela HTML
+                StringBuilder htmlTable = new StringBuilder("<table id=\"/listarFilmes\">");
+                htmlTable.append("<tr><th>ID</th><th>Título</th><th>Gênero</th><th>Ano de Lançamento</th></tr>");
 
                 // Iterar sobre os resultados e adicionar à tabela HTML
                 while (resultSet.next()) {
+                    // Obter os valores das colunas
+                    int id = resultSet.getInt("id");
                     String titulo = resultSet.getString("titulo");
                     String genero = resultSet.getString("genero");
-                    int ano = resultSet.getInt("ano");
+                    int ano = resultSet.getInt("anoLancamento");
 
+                    // Adicionar uma nova linha à tabela HTML com os valores obtidos
                     htmlTable.append("<tr>");
+                    htmlTable.append("<td>").append(id).append("</td>");
                     htmlTable.append("<td>").append(titulo).append("</td>");
                     htmlTable.append("<td>").append(genero).append("</td>");
                     htmlTable.append("<td>").append(ano).append("</td>");
                     htmlTable.append("</tr>");
                 }
 
+                // Finalização da tabela HTML
                 htmlTable.append("</table>");
 
                 // Exibir a tabela HTML
                 System.out.println(htmlTable.toString());
             }
         } catch (SQLException e) {
+            // Tratamento de exceção em caso de erro na execução do SQL
             e.printStackTrace();
         }
     }
