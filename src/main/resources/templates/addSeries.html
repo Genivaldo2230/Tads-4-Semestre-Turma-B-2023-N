@@ -31,9 +31,14 @@
 
     </form>
 </div>
-
+<!-- Exibe mensagens de erro -->
+<ul th:if="${errorMessages}" th:each="errorMessage : ${errorMessages}">
+    <li th:text="${errorMessage}"></li>
+</ul>
 <div class="button-listar">
     <a class="" th:href="@{/listarSeries}">Listar Filmes e Series</a>
 </div>
+
+
 </body>
 </html>

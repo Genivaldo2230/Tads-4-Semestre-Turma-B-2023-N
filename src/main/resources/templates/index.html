@@ -11,6 +11,42 @@
     <title>TADS Atividade Desenvolvimento Web 2023-2- Turma B</title>
 
 </head>
+<style>
+    /* Estilos para a lista não ordenada */
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        border: 3px solid red;
+        display: grid;
+        padding: 17px;
+        font-size: 22px;
+        color: white;
+        margin-top: 12px;
+    }
+
+    /* Estilos para os itens de lista */
+    ul li {
+        margin-bottom: 10px; /* Espaçamento entre os itens */
+    }
+
+    /* Estilos para os círculos */
+    ul li::before {
+        content: "\2022"; /* Código Unicode para um ponto (•) */
+        color: #3498db; /* Cor dos círculos */
+        display: inline-block;
+        width: 1em; /* Largura do círculo */
+        margin-left: -1em; /* Deslocamento para alinhar com o texto */
+    }
+
+    /* Estilos para o texto dos itens de lista */
+    ul li {
+        display: inline-block; /* Permite que os itens fiquem na mesma linha */
+        margin-left: 0.5em; /* Espaçamento entre o círculo e o texto */
+        vertical-align: middle; /* Alinha verticalmente o texto com o círculo */
+    }
+
+</style>
 <body>
 <div id="container-main">
     <div class="row">
@@ -30,48 +66,19 @@
                 <tabela>
                     <Tbody>
                     <tr>
-                        <th>Depedências do Primavera</th>
-                        <th>Spring Web</th>
+                        <th>Depedências do Spring-boot</th>
+                        <br>
+                        <th> Spring Web</th>
+                        <br>
                         <th>Ferramenta</th>
+                        <br>
                         <th>H2 Data</th>
-                        <th>Primavera JPA</th>
+                        <br>
+                        <th>Spring-boot JPA</th>
                     </TR>
                     <!-- Adicionar linhas com informações de dependência reais aqui -->
-                    <style>
-                        /* Estilos para a lista não ordenada */
-                        ul {
-                            list-style-type: none;
-                            padding: 0;
-                            /* border: 3px solid red; */
-                            display: grid;
-                            font-size: 22px;
-                            color: white;
-                            margin-top: 0px;
-                        }
 
-                        /* Estilos para os itens de lista */
-                        ul li {
-                            margin-bottom: 10px; /* Espaçamento entre os itens */
-                        }
-
-                        /* Estilos para os círculos */
-                        ul li::before {
-                            content: "\2022"; /* Código Unicode para um ponto (•) */
-                            color: #3498db; /* Cor dos círculos */
-                            display: inline-block;
-                            width: 1em; /* Largura do círculo */
-                            margin-left: -1em; /* Deslocamento para alinhar com o texto */
-                        }
-
-                        /* Estilos para o texto dos itens de lista */
-                        ul li {
-                            display: inline-block; /* Permite que os itens fiquem na mesma linha */
-                            margin-left: 0.5em; /* Espaçamento entre o círculo e o texto */
-                            vertical-align: middle; /* Alinha verticalmente o texto com o círculo */
-                        }
-
-                    </style>
-                    <ul>
+                    <ul style="background-color: #131212">
                         <li>org.springframework.boot:spring-boot-starter-data-jpa</li>
                         <li>org.springframework.boot:spring-boot-starter-thymeleaf</li>
                         <li>org.springframework.boot:spring-boot-starter-web</li>
@@ -114,6 +121,7 @@
 <div class="link-add">
     <a class="link-add" th:href="@{/addSeries}">Adicionar Filmes e Séries</a>
 </div>
+<br><br><br>
 
 <script crossorigin="anonymous"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

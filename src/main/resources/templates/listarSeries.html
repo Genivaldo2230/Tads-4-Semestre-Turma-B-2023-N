@@ -12,17 +12,26 @@
 <div id="container">
 
     <h1>Tads 4º Semestre Turma {B} 2023-N</h1>
-
+    <div id="button-link-voltar">
+        <hr>
+        <a class="link-voltar" th:href="@{/index.html}">Home</a>
+    </div>
     <video autoplay id="video-background" loop muted>
         <source th:src="@{/assents/videoClips/Logotipo.mp4}" type="video/mp4">
         Seu navegador não suporta o elemento de vídeo.
     </video>
 
-    <!-- Conteúdo da sua página aqui -->
-    <!-- Display success message if present in the model -->
-    <div class="alert alert-success" th:if="${mensagem}">
-        <p th:text="${mensagem}"></p>
+
+    <div class="alertSuccess" th:if="${mensagem}">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <span th:text="${mensagem}"></span>
+
     </div>
+
+<!--    &lt;!&ndash; Exibir mensagem de sucesso se presente no modelo &ndash;&gt;-->
+<!--    <div class="alertSuccess" th:if="${mensagem}">-->
+<!--        <p th:text="${mensagem}"></p>-->
+<!--    </div>-->
 
     <table>
         <thead>
@@ -52,34 +61,49 @@
     <br><br>
 </div>
 
-<div id="button-link-voltar">
-    <hr>
-    <a class="link-voltar" th:href="@{/index.html}">Home</a>
-</div>
+
+
 
 <!-- Add this script block in the head section of your HTML -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>-->
+
+
+<!-- Conteúdo da sua página aqui -->
+
+
+
+<!-- Script para manipulação de eventos relacionados às séries -->
 <script>
-    // Maintain a set to track clicked titles
-    var clickedTitles = new Set();
+    // Função para exibir alerta com o título da série clicada
+    function exibirAlerta(row) {
+        // Supondo que o título está na segunda célula (índice 1) da linha clicada
+        var texto = $(row).find('td:eq(0)').text();
 
-    function showTitleAlert(row) {
-        // Assuming the title is in the second cell (index 1) of the clicked row
-        var seriesId = $(row).find('td:eq(1)').text();
+        // Verificar se a série já foi adicionada nesta sessão
+        if (!sessionStorage.getItem('serieAdicionada')) {
+            // Exibir um alerta com o título da série clicada
+            exibirAlertaDeSucesso('Série Adicionada: ' + texto);
 
-        // Check if the title has been clicked before
-        if (!clickedTitles.has(seriesId)) {
-            // Display an alert with the title of the clicked series
-            alert('Série Adiconada : ' + seriesId);
-
-            // Add the title to the set to mark it as clicked
-            clickedTitles.add(seriesId);
-        } else {
-            // Alert that the title has already been clicked
-            alert('Série já adicionada anteriormente: ' + seriesId);
+            // Adicionar a mensagem de sucesso apenas uma vez por sessão
+            sessionStorage.setItem('serieAdicionada', 'true');
         }
     }
+
+    // Função para exibir alerta de sucesso e remover após um intervalo
+    function exibirAlertaDeSucesso(mensagem) {
+        // Adicionar temporariamente a mensagem de sucesso na página
+        var mensagemDeSucesso = $('<div class="alertSuccess">' + mensagem + '</div>');
+        $(document.body).append(mensagemDeSucesso);
+
+        // Remover a mensagem após 3 segundos (3000 milissegundos)
+        setTimeout(function () {
+            mensagemDeSucesso.remove();
+        }, 1000);
+    }
+
 </script>
+
+
 
 </body>
 </html>

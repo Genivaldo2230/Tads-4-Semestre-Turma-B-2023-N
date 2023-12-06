@@ -5,9 +5,9 @@
 }
 
 html {
-    background-image: url("/static/assents/videoClips/Logotipo.mp4");
+    background-image: url("../assents/videoClips/Logotipo.mp4");
+    background-image: url("../assents/videoClips/Logotipo.mp4");
 }
-
 body {
     max-width: 100%;
     display: grid;
