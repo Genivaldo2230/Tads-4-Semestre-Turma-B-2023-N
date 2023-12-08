@@ -5,24 +5,31 @@
 }
 
 html {
-    background-image: url("../assents/videoClips/Logotipo.mp4");
-    background-image: url("../assents/videoClips/Logotipo.mp4");
 }
 body {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+    width: 100vw;
+    background-image: url("../assents/img/W34E0N.webp");
+    background-size: cover; /* ou contain, dependendo do efeito desejado */
+    background-position: center center; /* ou ajuste conforme necessário */
+    background-repeat: no-repeat;
+    height:100%;
+}
+body {
+
+    margin: 10px;
+    width: 100vw;
+    background-size: cover; /* ou contain, dependendo do efeito desejado */
+    background-position: center center; /* ou ajuste conforme necessário */
+    background-repeat: no-repeat;
+    height:100%;
     max-width: 100%;
     display: grid;
     justify-content: center;
 }
 
-body, h1, h2, form, table {
-    margin: 10px;
-    padding: 5px;
-    font-family: Arial, sans-serif;
-    background-color: #61616170;
-    border: 2.5px solid #f7ecec;
-    border-radius: 14px;
-    font-family: Arial, sans-serif;
-}
+
 
 #container {
     width: 80%;
@@ -32,16 +39,21 @@ body, h1, h2, form, table {
     align-items: center;
     margin: 100px;
 }
+.alertSuccess {
+     background: #4caf50;
+     text-align: center;
+     font-size: 31px;
+ }
 
-video {
-    width: 100%;
-    height: 100vh; /* Ocupa 100% da altura da viewport */
-    object-fit: cover; /* Mantém a proporção do vídeo */
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1; /* Coloca o vídeo no fundo */
-}
+/*video {*/
+/*    width: 100%;*/
+/*    height: 100vh; !* Ocupa 100% da altura da viewport *!*/
+/*    object-fit: cover; !* Mantém a proporção do vídeo *!*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    z-index: -1; !* Coloca o vídeo no fundo *!*/
+/*}*/
 
 h1 {
     width: 100%;
@@ -128,6 +140,7 @@ p {
 }
 
 a.link-voltar {
+    width: 246px;
     color: white;
     font-size: 32px;
     margin: 28px;
@@ -137,7 +150,7 @@ a.link-voltar {
     font-family: initial;
     text-decoration: none;
     display: block;
-    text-align: end;
+    text-align: center;
     background-color: #5f9ea0ab;
 }
 
@@ -189,8 +202,11 @@ th {
 @media only screen and (max-width: 600px) {
     /* Estilos para telas menores que 600 pixels de largura */
     body {
+        margin-left: 34px;
+        width: 100%;
+        height: 100vh;
         border: none;
-        overflow-x: auto; /* Adiciona scroll horizontal à tabela */
+        overflow-x: auto;
     }
 
     h1 {
@@ -271,13 +287,21 @@ th {
 @media only screen and (max-width: 768px) {
     /* Adicione estilos específicos para telas menores que 768 pixels de largura */
     h1 {
-        font-size: 1.5em;
+        font-size: 24px;
+        text-align: center;
     }
 
     #container {
         max-width: 90%;
     }
-
+    .alertSuccess {
+        background: #4caf50;
+        text-align: center;
+        font-size: 20px;
+        margin-left: -53px;
+        border: 3px solid wheat;
+        border-radius: 15px;
+    }
     table {
         width: 100%;
     }

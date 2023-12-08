@@ -1,109 +1,100 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>LISTA SERIES E Filme </title>
-    <link href="/style/ListarSeries.css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-rbs5a0e8Iq51aDq8K1tZfeM6pzkY9vG12b7LeqWwBhA2nvDRELUdS+J9XQa/sy6E"
+          crossorigin="anonymous">
 
+    <link rel="stylesheet" href="/style/ListarSeries.css">
+    <title>listar Filmes</title>
+</head>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <title>Tads 4º Semestre Turma {B} 2023-N</title>
+    <style>
+        /* Adicione estilos personalizados aqui, se necessário */
+    </style>
 </head>
 <body>
-<div id="container">
 
-    <h1>Tads 4º Semestre Turma {B} 2023-N</h1>
-    <div id="button-link-voltar">
-        <hr>
-        <a class="link-voltar" th:href="@{/index.html}">Home</a>
-    </div>
-    <video autoplay id="video-background" loop muted>
-        <source th:src="@{/assents/videoClips/Logotipo.mp4}" type="video/mp4">
-        Seu navegador não suporta o elemento de vídeo.
-    </video>
+<h1>Tads 4º Semestre Turma {B} 2023-N</h1>
 
-
-    <div class="alertSuccess" th:if="${mensagem}">
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        <span th:text="${mensagem}"></span>
-
-    </div>
-
-<!--    &lt;!&ndash; Exibir mensagem de sucesso se presente no modelo &ndash;&gt;-->
-<!--    <div class="alertSuccess" th:if="${mensagem}">-->
-<!--        <p th:text="${mensagem}"></p>-->
-<!--    </div>-->
-
-    <table>
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Título</th>
-            <th>Gênero</th>
-            <th style="width: 11em;">Lançamento Ano:</th>
-        </tr>
-        </thead>
-        <tbody>
-<!--        onclick="showTitleAlert(this)">-->
-        <tr th:each="item : ${series}" >
-            <td th:text="${item.id}"></td>
-            <td th:text="${item.titulo}"></td>
-            <td th:text="${item.genero}"></td>
-            <td th:text="${item.anoLancamento}"></td>
-        </tr>
-        </tbody>
-
-    </table>
+<div id="button-link-voltar">
+    <hr>
+    <a class="link-voltar" th:href="@{/index.html}">Home</a>
 </div>
+
+<div class="alertSuccess" th:if="${mensagem}">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <span th:text="${mensagem}"></span>
+</div>
+
+<h4 id="mensagemSucesso"></h4>
+
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Título</th>
+        <th>Gênero</th>
+        <th style="width: 11em;">Lançamento Ano:</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${series}" onclick="exibirAlerta(this)">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.titulo}"></td>
+        <td th:text="${item.genero}"></td>
+        <td th:text="${item.anoLancamento}"></td>
+    </tr>
+    </tbody>
+</table>
 
 <div id="button-link-add">
-    <a class="link-add" th:href="@{/addSeries}">Adicinar Filmes e Series</a>
-    <hr>
-    <br><br>
+    <a class="link-add" th:href="@{/form}">Adicionar Filmes e Series</a>
 </div>
 
-
-
-
-<!-- Add this script block in the head section of your HTML -->
-<!--<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>-->
-
-
-<!-- Conteúdo da sua página aqui -->
-
-
-
 <!-- Script para manipulação de eventos relacionados às séries -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha384-o3bJ8VNxHaVl9AS/0fntBCvI5qtJ3p43aF7dtBRV16qUrvHI4YqD63KB2J5SIIeq"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 <script>
-    // Função para exibir alerta com o título da série clicada
-    function exibirAlerta(row) {
-        // Supondo que o título está na segunda célula (índice 1) da linha clicada
-        var texto = $(row).find('td:eq(0)').text();
+    $(document).ready(function () {
+        // Adicione este trecho para limpar a chave ao recarregar a página
+        $(window).on('beforeunload', function () {
+            sessionStorage.removeItem('serieAdicionada');
+        });
 
-        // Verificar se a série já foi adicionada nesta sessão
-        if (!sessionStorage.getItem('serieAdicionada')) {
-            // Exibir um alerta com o título da série clicada
-            exibirAlertaDeSucesso('Série Adicionada: ' + texto);
-
-            // Adicionar a mensagem de sucesso apenas uma vez por sessão
-            sessionStorage.setItem('serieAdicionada', 'true');
+        function exibirAlerta(row) {
+            var texto = $(row).find('td:eq(0)').text();
+            if (!sessionStorage.getItem('serieAdicionada')) {
+                exibirAlertaDeSucesso('Série Adicionada: ' + texto);
+                sessionStorage.setItem('serieAdicionada', 'true');
+            }
         }
-    }
 
-    // Função para exibir alerta de sucesso e remover após um intervalo
-    function exibirAlertaDeSucesso(mensagem) {
-        // Adicionar temporariamente a mensagem de sucesso na página
-        var mensagemDeSucesso = $('<div class="alertSuccess">' + mensagem + '</div>');
-        $(document.body).append(mensagemDeSucesso);
-
-        // Remover a mensagem após 3 segundos (3000 milissegundos)
-        setTimeout(function () {
-            mensagemDeSucesso.remove();
-        }, 1000);
-    }
-
+        function exibirAlertaDeSucesso(mensagem) {
+            var mensagemDeSucesso = $('<div class="alertSuccess">' + mensagem + '</div>');
+            $(document.body).append(mensagemDeSucesso);
+            setTimeout(function () {
+                mensagemDeSucesso.remove();
+            }, 1000);
+        }
+    });
 </script>
-
-
-
 </body>
+</html>
 </html>
