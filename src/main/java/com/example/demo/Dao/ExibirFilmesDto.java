@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ExibirFilmesDto {
-
     public static void main(String[] args) {
         // Configurar a conexão com o banco de dados H2
         String url = "jdbc:h2:mem:testdb";

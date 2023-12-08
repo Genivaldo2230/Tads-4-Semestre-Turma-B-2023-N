@@ -3,34 +3,22 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-html {
-}
 body {
     font-family: Arial, sans-serif;
     margin: 10px;
     width: 100vw;
-    background-image: url("../assents/img/W34E0N.webp");
-    background-size: cover; /* ou contain, dependendo do efeito desejado */
-    background-position: center center; /* ou ajuste conforme necessário */
+    height: 100vh;
+    background-image: url(../assents/img/W34E0N.webp);
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
-    height:100%;
 }
+
 body {
-
-    margin: 10px;
-    width: 100vw;
-    background-size: cover; /* ou contain, dependendo do efeito desejado */
-    background-position: center center; /* ou ajuste conforme necessário */
-    background-repeat: no-repeat;
-    height:100%;
-    max-width: 100%;
     display: grid;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
 }
-
-
-
 #container {
     width: 80%;
     height: auto;
@@ -40,38 +28,19 @@ body {
     margin: 100px;
 }
 .alertSuccess {
-     background: #4caf50;
-     text-align: center;
-     font-size: 31px;
- }
+    background: #4caf50;
+    text-align: center;
+    font-size: 31px;
 
-/*video {*/
-/*    width: 100%;*/
-/*    height: 100vh; !* Ocupa 100% da altura da viewport *!*/
-/*    object-fit: cover; !* Mantém a proporção do vídeo *!*/
-/*    position: fixed;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    z-index: -1; !* Coloca o vídeo no fundo *!*/
-/*}*/
-
+}
 h1 {
     width: 100%;
-    margin-top: 100px;
-    padding: 17px;
     text-align: center;
     border: 3px solid #5ce51696;
     color: white;
     border-radius: 44px;
-    display: block;
     font-size: 3em;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
 }
-
 form {
     max-width: 400px;
     margin: 0 auto;
@@ -80,12 +49,10 @@ form {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 label {
     display: block;
     margin-bottom: 8px;
 }
-
 input {
     width: 100%;
     padding: 8px;
@@ -94,7 +61,6 @@ input {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-
 button {
     background-color: #4caf50;
     color: #fff;
@@ -103,7 +69,6 @@ button {
     border-radius: 4px;
     cursor: pointer;
 }
-
 .link-add {
     font-weight: bold;
     border: 3px solid #eae4e4;
@@ -124,7 +89,6 @@ button {
     color: yellow; /* Altere a cor do texto conforme necessário */
     /* Adicione mais estilos conforme necessário para o hover */
 }
-
 p {
     display: block;
     font-size: 25px;
@@ -138,13 +102,12 @@ p {
     border-radius: 24px;
     border: 3px solid #e8e3e3;
 }
-
 a.link-voltar {
     width: 246px;
     color: white;
     font-size: 32px;
-    margin: 28px;
-    padding: 10px 20px;
+    margin: 10px;
+    padding: 10px 0px;
     border: 2px solid white;
     border-radius: 20px;
     font-family: initial;
@@ -153,42 +116,34 @@ a.link-voltar {
     text-align: center;
     background-color: #5f9ea0ab;
 }
-
 a.link-voltar:hover {
     color: black;
     background-color: chartreuse;
 }
-
 h2 {
     margin-top: 20px;
     text-align: center;
 }
-
 table {
     width: 98em;
-    /* border-collapse: collapse; */
-    margin-top: 10px;
+    margin-top: 5em;
     display: table;
     border-collapse: unset;
     box-sizing: border-box;
     text-indent: initial;
     border-spacing: 2px;
-    /* border-color: #c72b2b; */
     background-color: #79a50038;
 }
-
 th, td {
     border: 2px solid #131212;
     padding: 8px;
 }
-
 td {
     color: white;
     font-family: 'Inter';
     font-size: 21px;
     text-align: center;
 }
-
 th {
     background-color: #4caf50;
     color: #fff;
@@ -198,7 +153,6 @@ th {
     border-bottom: 30px solid #bf780f;
     font-weight: 700;
 }
-
 @media only screen and (max-width: 600px) {
     /* Estilos para telas menores que 600 pixels de largura */
     body {
@@ -267,7 +221,6 @@ th {
         border-radius: 18px;
         text-decoration: none;
     }
-
     /* Estilo quando o mouse está sobre o link "Adicionar Filmes e Series" */
     .link-add:hover {
         background-color: royalblue; /* Altere a cor de fundo conforme necessário */
